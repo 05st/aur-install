@@ -1,0 +1,9 @@
+#!/bin/bash
+# Clones AUR repository, changes directory, and runs makepkg -si
+
+prefix="https://aur.archlinux.org/"
+git clone "${prefix}${1}.git"
+cd $1
+makepkg --syncdeps --install --noconfirm
+cd ..
+rm -rf $1
